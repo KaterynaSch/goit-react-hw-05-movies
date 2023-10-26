@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom"
+import { Toaster } from 'react-hot-toast';
 import styled from "styled-components";
 const Link = styled(NavLink)`
     &:active {
@@ -17,6 +18,7 @@ export const SharedLayout = () => {
             <main>
                 <Outlet/>
             </main>
+            <Toaster position="top-right" />
         </div>
     );
 };

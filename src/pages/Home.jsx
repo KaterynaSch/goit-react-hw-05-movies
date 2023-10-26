@@ -9,18 +9,16 @@ export default function Home() {
     useEffect(() => {
         async function getTrendingMovies() {
             try {
-                 const {results} = await fetchTrendingMovies();  
-                 console.log(results);                
+                 const {results} = await fetchTrendingMovies();                                
                  setMovies(results);
             } catch (error) {
                 console.log(error);
-            }          
-
-        }
+            }  
+        };
         getTrendingMovies()
     }, []);
 
     return(
         <MovieList movies={movies}/>
     )
-}
+};
