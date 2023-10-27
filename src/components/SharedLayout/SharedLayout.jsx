@@ -15,9 +15,9 @@ export const SharedLayout = () => {
                     <Link to="/movies">Movies</Link>                   
                 </nav>
             </header>
-            <main>
+           
                 <Outlet/>
-            </main>
+            
             <Toaster position="top-right" />
         </div>
     );

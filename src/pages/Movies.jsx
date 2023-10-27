@@ -12,14 +12,15 @@ export default function Movies() {
     
    
     useEffect(() => {     
-        const query = searchParams.get('query') ?? '';   
+        const query = searchParams.get('query') ?? '';
+        // console.log(query);   
         async function getSearchMovies() {
             if (query === ""){
                 return;
             }  
             try {
-                 const {results} = await fetchSearchMovies(searchParams);  
-                 console.log(results); 
+                 const {results} = await fetchSearchMovies(query);  
+               
                  if (results.length === 0){
                     toast.error(`Sorry, there are no films matching your search query. Please try again.`);
                  } else{
