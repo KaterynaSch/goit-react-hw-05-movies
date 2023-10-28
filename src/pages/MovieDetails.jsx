@@ -1,19 +1,22 @@
 import { Link, Outlet, useLocation, useParams} from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
-import { fetchMovieDetails } from "components/Api/Api";
+import { fetchMovieDetails } from "api";
 import toast from 'react-hot-toast';
 import { MovieCard } from "components/MovieCard/MovieCard";
+import { BackLink } from "components/BackLink";
 
 const MovieDetails = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);   
+    // const [selectedMovie, setSelectedMovie] = useState({});  
     const {movieId} = useParams();
     const location = useLocation();   
 
     useEffect(() => {
-        async function getMovieDetails() {
+         const getMovieDetails = async() => {
             try {
-                const  data  = await fetchMovieDetails(movieId);
-                setSelectedMovie(data);
+                const movieData = await fetchMovieDetails(movieId);
+                console.log(movieData);
+                setSelectedMovie(movieData);
             } catch (error) {
                 toast.error(`Error while fetching movie details`);                
             }
@@ -26,8 +29,8 @@ const MovieDetails = () => {
     }
  
     return(
-        <div>
-            <Link to={location.state?.from ?? '/'}>Go back</Link>
+        <>
+            <BackLink to={location.state?.from ?? '/'}>Go back</BackLink>
             <MovieCard movie = {selectedMovie}/>
              <ul>
                 <li>
@@ -40,7 +43,7 @@ const MovieDetails = () => {
             <Suspense fallback={'LOADING PAGE...'}>
                 <Outlet /> 
             </Suspense>
-        </div>
+        </>
     );
 };
 export default MovieDetails;

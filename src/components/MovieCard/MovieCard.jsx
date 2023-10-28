@@ -1,3 +1,5 @@
+import { HiPhotograph } from "react-icons/hi";
+
 export const MovieCard = ({movie}) => {
     
    const {title, poster_path, vote_average, overview, genres} = movie;  
@@ -10,7 +12,14 @@ export const MovieCard = ({movie}) => {
 
     return(
         <div>
-           <img src={posterUrl} width = {250}  alt={`${title} poster`}/>
+           {/* <img src={posterUrl} width = {250}  alt={`${title} poster`}/> */}
+
+           {poster_path ? (
+          <img src={posterUrl} width={250} alt={`${title} poster`} />
+        ) : (
+          <HiPhotograph size={500}/>
+        )}
+
             <h2>{title}</h2>
             <p>User Score: {userScore} %</p>
             <h3>Overview:</h3>

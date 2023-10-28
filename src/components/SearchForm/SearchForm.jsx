@@ -2,6 +2,7 @@
 import { useState } from "react";
 // import {toast} from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
+import { Input, Wrapper } from "./SearchForm.styled";
 
 export const SearchForm = () => {
     const [query, setQuery] = useState ();
@@ -22,9 +23,9 @@ export const SearchForm = () => {
 
       
     return (
-        <main >
+        <Wrapper>
             <form onSubmit={handleSubmit}>            
-                <input 
+                <Input 
                 type="text" 
                 autoComplete="off" 
                 autoFocus placeholder="Search movie" 
@@ -34,6 +35,6 @@ export const SearchForm = () => {
                 />
                 <button type="submit" >Search</button>
             </form>
-        </main>        
+        </Wrapper>        
     );
 };

@@ -1,4 +1,4 @@
-import { fetchSearchMovies } from "components/Api/Api";
+import { fetchSearchMovies } from "api";
 import toast from 'react-hot-toast';
 import { MovieList } from "components/MovieList/MovieList";
 import { SearchForm } from "components/SearchForm/SearchForm";
