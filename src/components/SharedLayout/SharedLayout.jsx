@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { Suspense } from "react";
 import { Container, Header, Link } from "./SharedLayout.styled";
 
-export const SharedLayout = () => {
+const SharedLayout = () => {
     return(
         <Container>
             <Header>
@@ -22,3 +22,4 @@ export const SharedLayout = () => {
         </Container>
     );
 };
+export default SharedLayout;

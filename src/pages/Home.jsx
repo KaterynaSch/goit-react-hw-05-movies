@@ -2,7 +2,7 @@ import { fetchTrendingMovies } from "api";
 import { MovieList } from "components/MovieList/MovieList";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+const Home = () => {
 
     const [movies, setMovies] = useState([]);
 
@@ -22,3 +22,4 @@ export default function Home() {
         <MovieList movies={movies}/>
     )
 };
+export default Home;

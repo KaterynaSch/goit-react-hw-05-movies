@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 
-export default function Movies() {
+ const Movies = () =>  {
     const [searchMovies, setSearchMovies] = useState([]);   
     const [searchParams, ] = useSearchParams();
     
@@ -42,3 +42,4 @@ export default function Movies() {
         </>
     );
 };
+export default Movies;

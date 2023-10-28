@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import toast from 'react-hot-toast';
 import { useParams } from "react-router-dom";
 
-const Reviews = () => {
+export const Reviews = () => {
     const [movieReviews, setMovieReviews] = useState([])
     const {movieId} = useParams ();
+
     useEffect(() => {
         const getMovieReviews = async() => {
             try {
@@ -14,23 +15,22 @@ const Reviews = () => {
             } catch (error) {
                 toast.error(`Error while fetching movie revievs`);  
             }
-        }
+        };
         getMovieReviews();
-    }, [movieId])
+    }, [movieId]);
 
     return (
         <ul>
             <h2>Reviews</h2>
             {movieReviews.length === 0 &&
-            <div>There are no rewives for this movie.</div>}
+            <div>There are no reviews for this movie.</div>}
             {movieReviews.map(({author, content, id}) => (
                 <li key={id}>
                     <h3>Author: {author}</h3>
                     <p>{content}</p>
                 </li>
             ))}
-
         </ul>
     )
 };
-export default Reviews
+export default Reviews;
