@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
-import { MovieName } from "./MovieList.styled";
+import { ListItem, MovieName } from "./MovieList.styled";
 
 
 export const MovieList = ({movies}) => {
@@ -7,11 +7,11 @@ export const MovieList = ({movies}) => {
     return (
         <ul>
             {movies.map(movie => (                
-                <li key={movie.id}>
-                    <Link to={`/movies/${movie.id}`} state={{ form: location}}>
+                <ListItem key={movie.id}>
+                    <Link to={`/movies/${movie.id}`} state={{ from: location}}>
                        <MovieName>{movie.title ?? movie.original_name}</MovieName> 
                     </Link>
-                </li>
+                </ListItem>
             ))}
         </ul>
     );

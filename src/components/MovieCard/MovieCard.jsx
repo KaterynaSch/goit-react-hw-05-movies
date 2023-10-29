@@ -1,4 +1,6 @@
+import { PageTitle } from "pages/Home/Home.styled";
 import { HiPhotograph } from "react-icons/hi";
+import { DetailsWrapper, InfoWrapper, Subtitle } from "./MovieCard.styled";
 
 export const MovieCard = ({movie}) => {
     
@@ -11,21 +13,21 @@ export const MovieCard = ({movie}) => {
     const movieGenres = genres.map(genre => genre.name).join(', ');
 
     return(
-        <div>
-           {/* <img src={posterUrl} width = {250}  alt={`${title} poster`}/> */}
+        <DetailsWrapper> 
 
-           {poster_path ? (
-          <img src={posterUrl} width={250} alt={`${title} poster`} />
-        ) : (
-          <HiPhotograph size={500}/>
-        )}
-
-            <h2>{title}</h2>
-            <p>User Score: {userScore} %</p>
-            <h3>Overview:</h3>
-            <p>{overview}</p>
-            <h3>Genres:</h3>
-            <p>{movieGenres}</p>
-        </div>
+          {poster_path ? 
+            <img src={posterUrl} width={250} alt={`${title} poster`} />
+            : <HiPhotograph size={500}/>
+          }
+          <InfoWrapper>
+              <PageTitle>{title}</PageTitle>
+              <p>User Score: {userScore} %</p>
+              <Subtitle>Overview</Subtitle>
+              <p>{overview}</p>
+              <Subtitle>Genres</Subtitle>
+              <p>{movieGenres}</p>
+          </InfoWrapper>
+            
+        </DetailsWrapper>
     );
 };

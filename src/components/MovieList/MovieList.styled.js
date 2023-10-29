@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  gap: 16px;
+export const ListItem = styled.li`
+  padding: 8px;
 `
 
-export const MovieName = styled.h2`
-  padding: 4px;
-  margin-top: 8px;
-  margin-bottom: 0;
-  color: black;
+export const MovieName = styled.p`
+  font-size: 18px;
+  font-weight: 500;
+  color: navy;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline
+  }
 `
