@@ -2,6 +2,9 @@ import { fetchMovieReviews } from "API/api";
 import { useEffect, useState } from "react";
 import toast from 'react-hot-toast';
 import { useParams } from "react-router-dom";
+import { ReviewsList } from "./Reviews.styled";
+import { Subtitle } from "components/MovieCard/MovieCard.styled";
+import { SecondTitle } from "components/Cast/Cast.styled";
 
 export const Reviews = () => {
     const [movieReviews, setMovieReviews] = useState([])
@@ -20,17 +23,20 @@ export const Reviews = () => {
     }, [movieId]);
 
     return (
-        <ul>
-            <h2>Reviews</h2>
-            {movieReviews.length === 0 &&
+         <>
+         <SecondTitle>Reviews </SecondTitle>
+         {movieReviews.length === 0 &&
             <div>There are no reviews for this movie.</div>}
-            {movieReviews.map(({author, content, id}) => (
+            
+        <ReviewsList> 
+            {movieReviews.map(({author, content, id}) => (                
                 <li key={id}>
-                    <h3>Author: {author}</h3>
+                    <Subtitle>Author: {author}</Subtitle>
                     <p>{content}</p>
                 </li>
             ))}
-        </ul>
+        </ReviewsList>
+         </>               
     )
 };
 export default Reviews;

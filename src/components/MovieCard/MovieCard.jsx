@@ -1,6 +1,6 @@
 import { PageTitle } from "pages/Home/Home.styled";
-import { HiPhotograph } from "react-icons/hi";
 import { DetailsWrapper, InfoWrapper, Subtitle } from "./MovieCard.styled";
+import { DefaultIcon } from "components/Cast/Cast.styled";
 
 export const MovieCard = ({movie}) => {
     
@@ -17,7 +17,7 @@ export const MovieCard = ({movie}) => {
 
           {poster_path ? 
             <img src={posterUrl} width={250} alt={`${title} poster`} />
-            : <HiPhotograph size={500}/>
+            : <DefaultIcon size={500}/>
           }
           <InfoWrapper>
               <PageTitle>{title}</PageTitle>

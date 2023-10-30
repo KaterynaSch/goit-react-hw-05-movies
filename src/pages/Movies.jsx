@@ -5,6 +5,7 @@ import { fetchSearchMovies } from "API/api";
 import { MovieList } from "components/MovieList/MovieList";
 import { SearchForm } from "components/SearchForm/SearchForm";
 import { Loader } from "components/Loader/Loader";
+import { Page } from "./Home/Home.styled";
 
  const Movies = () =>  {
     const [searchMovies, setSearchMovies] = useState([]);   
@@ -38,11 +39,11 @@ import { Loader } from "components/Loader/Loader";
   
 
     return (
-        <>
+        <Page>
             <SearchForm />
             {loading && <Loader /> }  
             <MovieList movies={searchMovies}/>
-        </>
+        </Page>
     );
 };
 export default Movies;

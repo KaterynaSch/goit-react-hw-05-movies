@@ -9,7 +9,6 @@ export const Loader = () => {
             strokeWidth="5"
             animationDuration="0.75"
             width="56"
-            // visible={true}
             />
         </ModalWrapper>        
     );

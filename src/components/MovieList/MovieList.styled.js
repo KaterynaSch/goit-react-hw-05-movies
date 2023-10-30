@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const ListItem = styled.li`
-  padding: 8px;
-`
+  padding: 8px;`
 
 export const MovieName = styled.p`
   font-size: 18px;

@@ -2,8 +2,8 @@ import { fetchMovieCast } from "API/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import toast from 'react-hot-toast';
-// import { HiPhotograph } from "react-icons/hi";
-import { CastList, DefaultIcon } from "./Cast.styled";
+
+import { CastList, DefaultIcon, SecondTitle } from "./Cast.styled";
 
 export const Cast = () => {
     const [movieCast, setMovieCast] = useState([])
@@ -23,7 +23,7 @@ export const Cast = () => {
   
     return (
         <div>
-            <h2>Cast</h2>
+            <SecondTitle>Cast</SecondTitle>
             {movieCast.length === 0 &&
             <div>There is no cast list for this movie.</div>}
             <CastList>

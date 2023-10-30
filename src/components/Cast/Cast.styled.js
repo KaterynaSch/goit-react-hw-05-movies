@@ -1,7 +1,6 @@
 import { HiPhotograph } from "react-icons/hi";
 import styled from "styled-components";
 
-// HiPhoto
 export const CastList = styled.ul`
     margin-top: 30px;
     display: flex;
@@ -14,4 +13,9 @@ export const DefaultIcon = styled(HiPhotograph)`
     height: 375px;
     fill: #fff;
     background-color: lightblue;
+    
+`
+export const SecondTitle = styled.h2`
+    color: #CB852B;
+    
 `

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { fetchTrendingMovies } from "API/api";
 import { MovieList } from "components/MovieList/MovieList";
-import { HomePage, PageTitle } from "./Home.styled";
+import { Page, PageTitle } from "./Home.styled";
 
 const Home = () => {
 
@@ -21,10 +21,10 @@ const Home = () => {
     }, []);
 
     return(
-        <HomePage>
+        <Page>
             <PageTitle>Trending Movies </PageTitle>
             <MovieList movies={movies}/>
-        </HomePage>        
+        </Page>        
     )
 };
 export default Home;

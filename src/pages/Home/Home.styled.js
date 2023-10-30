@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomePage = styled.div`
+export const Page = styled.div`
      padding: 18px 24px;
 `
 

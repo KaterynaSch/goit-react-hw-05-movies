@@ -1,11 +1,11 @@
-import { Link, Outlet, useLocation, useParams} from "react-router-dom";
+import { Outlet, useLocation, useParams} from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
 import { fetchMovieDetails } from "API/api";
 import toast from 'react-hot-toast';
 import { MovieCard } from "components/MovieCard/MovieCard";
 import { BackLink } from "components/BackLink";
 import { Loader } from "components/Loader/Loader";
-import { Container } from "./MovieDetails.styled";
+import { Container, DetailsLink, DetailsList } from "./MovieDetails.styled";
 
 const MovieDetails = () => {
 
@@ -39,14 +39,14 @@ const MovieDetails = () => {
             <div>
                 <BackLink to={location.state?.from ?? '/'}>Go back</BackLink>
                 <MovieCard movie = {selectedMovie}/>
-                <ul>
+                <DetailsList>
                     <li>
-                        <Link to="cast">Cast</Link>
+                        <DetailsLink to="cast" state={{ from: location?.state?.from ?? '/' }}>CAST</DetailsLink>
                     </li>
                     <li>
-                        <Link to="reviews">Reviews</Link>
+                        <DetailsLink to="reviews" state={{ from: location?.state?.from ?? '/' }}>REVIEWS</DetailsLink>
                     </li>                
-                </ul>
+                </DetailsList>
             </div>            
             <Suspense fallback={<Loader/>}>
                 <Outlet /> 

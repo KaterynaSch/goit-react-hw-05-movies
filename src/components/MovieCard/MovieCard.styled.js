@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Subtitle = styled.h3`
     font-size: 400;
+    color: #4848a4
 `
 export const DetailsWrapper = styled.div`
     display: flex;
