@@ -9,7 +9,8 @@ import { Page } from "./Home/Home.styled";
 
  const Movies = () =>  {
     const [searchMovies, setSearchMovies] = useState([]);   
-    const [searchParams, ] = useSearchParams();
+    const [searchParams, setSearchParams ] = useSearchParams();
+    
     const [loading, setLoading] = useState(false)
    
     useEffect(() => {     
@@ -35,12 +36,14 @@ import { Page } from "./Home/Home.styled";
         };
         getSearchMovies()
     }, [searchParams]);
-
+    
+    const handleSubmit = (queryValue) => {
+        setSearchParams({ query: queryValue });
+    }
   
-
     return (
         <Page>
-            <SearchForm />
+            <SearchForm onSubmit={handleSubmit}/>
             {loading && <Loader /> }  
             <MovieList movies={searchMovies}/>
         </Page>

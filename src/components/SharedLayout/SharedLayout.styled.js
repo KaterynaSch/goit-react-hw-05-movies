@@ -16,13 +16,13 @@ export const Header = styled.header`
   }
 `
 export const LinkPage = styled(NavLink)`
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
   color: #E89E46;
   font-size: 24px;
   font-weight: 600;
-
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  
   &.active {
     color: #fff;
     background-color: #E89E46;

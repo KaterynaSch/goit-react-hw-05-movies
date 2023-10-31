@@ -5,9 +5,9 @@ export const Page = styled.div`
 `
 
 export const PageTitle = styled.h1`
-   
-    text-align :center;
     font-weight: 600;
+    margin-bottom: 18px;
+    text-align :center;    
     color: #CB852B;
 
     @media only screen and (min-width: 768px) {

@@ -1,6 +1,6 @@
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom"
 import { Toaster } from 'react-hot-toast';
-import { Suspense } from "react";
 import { Header, LinkPage } from "./SharedLayout.styled";
 import { Loader } from "components/Loader/Loader";
 

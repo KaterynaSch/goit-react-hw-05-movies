@@ -1,7 +1,7 @@
-import { fetchMovieReviews } from "API/api";
 import { useEffect, useState } from "react";
-import toast from 'react-hot-toast';
 import { useParams } from "react-router-dom";
+import toast from 'react-hot-toast';
+import { fetchMovieReviews } from "API/api";
 import { ReviewsList } from "./Reviews.styled";
 import { Subtitle } from "components/MovieCard/MovieCard.styled";
 import { SecondTitle } from "components/Cast/Cast.styled";

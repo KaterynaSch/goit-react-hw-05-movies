@@ -1,7 +1,7 @@
-import { Outlet, useLocation, useParams} from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
-import { fetchMovieDetails } from "API/api";
+import { Outlet, useLocation, useParams} from "react-router-dom";
 import toast from 'react-hot-toast';
+import { fetchMovieDetails } from "API/api";
 import { MovieCard } from "components/MovieCard/MovieCard";
 import { BackLink } from "components/BackLink";
 import { Loader } from "components/Loader/Loader";
@@ -9,17 +9,21 @@ import { Container, DetailsLink, DetailsList } from "./MovieDetails.styled";
 
 const MovieDetails = () => {
 
-    const [selectedMovie, setSelectedMovie] = useState(null);   
-    const [loading, setLoading] = useState(false) 
-    const {movieId} = useParams();
-    const location = useLocation();   
+    const {movieId} = useParams();    
+    const [loading, setLoading] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState({});
+    const location = useLocation();
 
     useEffect(() => {
-         const getMovieDetails = async() => {
+        const getMovieDetails = async () => {
             try {
-                setLoading(true);
-                const movieData = await fetchMovieDetails(movieId);                
-                setSelectedMovie(movieData);
+                setLoading(true)
+                const movieData = await fetchMovieDetails(movieId);
+                if(movieData.length === 0) {
+                    toast.error(`Movie not found or an error occurred while fetching movie details.`);
+                }else{
+                    setSelectedMovie(movieData);
+                }                        
             } catch (error) {
                 toast.error(`Error while fetching movie details`);                
             } finally {
@@ -28,17 +32,15 @@ const MovieDetails = () => {
         }
         getMovieDetails();
     }, [movieId]);
-
-    if (!selectedMovie) {
-        return null; 
+    if (!selectedMovie || Object.keys(selectedMovie).length === 0) {
+        return null;
     }
- 
     return(
         <Container>
             {loading && <Loader /> }  
-            <div>
+            {<div>
                 <BackLink to={location.state?.from ?? '/'}>Go back</BackLink>
-                <MovieCard movie = {selectedMovie}/>
+                <MovieCard movie={selectedMovie}/>
                 <DetailsList>
                     <li>
                         <DetailsLink to="cast" state={{ from: location?.state?.from ?? '/' }}>CAST</DetailsLink>
@@ -47,7 +49,7 @@ const MovieDetails = () => {
                         <DetailsLink to="reviews" state={{ from: location?.state?.from ?? '/' }}>REVIEWS</DetailsLink>
                     </li>                
                 </DetailsList>
-            </div>            
+            </div>  }          
             <Suspense fallback={<Loader/>}>
                 <Outlet /> 
             </Suspense>

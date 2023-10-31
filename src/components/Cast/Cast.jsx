@@ -1,8 +1,7 @@
-import { fetchMovieCast } from "API/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import toast from 'react-hot-toast';
-
+import { fetchMovieCast } from "API/api";
 import { CastList, DefaultIcon, SecondTitle } from "./Cast.styled";
 
 export const Cast = () => {

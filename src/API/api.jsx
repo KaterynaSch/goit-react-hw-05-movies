@@ -7,7 +7,7 @@ const searchParams = new URLSearchParams({
 })
 
 export const fetchTrendingMovies = async () => {
-    const {data} = await axios.get(`/trending/all/week?${searchParams}`)
+    const {data} = await axios.get(`/trending/all/day?${searchParams}`)
     return data;
 };
 
